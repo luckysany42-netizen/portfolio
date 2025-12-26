@@ -112,10 +112,27 @@ const techStacks = [
   { icon: "vite.svg", language: "Vite" },
   { icon: "nodejs.svg", language: "Node JS" },
   { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "/mysql.svg", language: "MySQL" },
+  { icon: "/laragon.svg", language: "Laragon" },
+  { icon: "/php.svg", language: "PHP" },
+  { icon: "/laravel.svg", language: "Laravel" },
+];
+
+const certificatesData = [
+  {
+    id: 1,
+    Img: "/certificates/Gamelab.jpeg",
+    title: "Kunjungan Industri",
+    issuer: "Gamelab",
+    year: "2025",
+  },
+  {
+    id: 1,
+    Img: "/certificates/DomainMyId.jpeg",
+    title: "Kunjungan Industri",
+    issuer: "Gamelab",
+    year: "2025",
+  }
 ];
 
 export default function FullWidthTabs() {
@@ -165,17 +182,22 @@ export default function FullWidthTabs() {
 
 
   useEffect(() => {
-    // Coba ambil dari localStorage dulu untuk laod lebih cepat
-    const cachedProjects = localStorage.getItem('projects');
-    const cachedCertificates = localStorage.getItem('certificates');
+  const cachedProjects = localStorage.getItem("projects");
+  const cachedCertificates = localStorage.getItem("certificates");
 
-    if (cachedProjects && cachedCertificates) {
-        setProjects(JSON.parse(cachedProjects));
-        setCertificates(JSON.parse(cachedCertificates));
-    }
-    
-    fetchData(); // Tetap panggil fetchData untuk sinkronisasi data terbaru
-  }, [fetchData]);
+  if (cachedProjects) {
+    setProjects(JSON.parse(cachedProjects));
+  }
+
+  if (cachedCertificates) {
+    setCertificates(JSON.parse(cachedCertificates));
+  } else {
+    // ✅ FALLBACK KE DATA STATIS
+    setCertificates(certificatesData);
+  }
+
+  fetchData();
+}, [fetchData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
