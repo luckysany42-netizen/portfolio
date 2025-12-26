@@ -5,6 +5,7 @@ import Komentar from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { supabase } from "../supabase";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -26,23 +27,47 @@ const ContactPage = () => {
     }));
   };
 
-  // ✅ DUMMY SUBMIT (AMAN UNTUK PROJECT KASAR)
-  const handleSubmit = (e) => {
+  // ✅ REAL SUBMIT KE SUPABASE
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     Swal.fire({
-      title: "Terkirim!",
-      text: "Contact form akan diaktifkan nanti.",
-      icon: "info",
-      confirmButtonColor: "#6366f1",
+      title: "Mengirim pesan...",
+      text: "Mohon tunggu sebentar",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
     });
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    const { name, email, message } = formData;
+
+    const { error } = await supabase
+      .from("messages")
+      .insert([{ name, email, message }]);
+
+    if (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Gagal",
+        text: "Pesan gagal dikirim. Coba lagi nanti.",
+        confirmButtonColor: "#6366f1",
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Terkirim!",
+        text: "Terima kasih, pesan kamu sudah terkirim.",
+        confirmButtonColor: "#6366f1",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    }
 
     setIsSubmitting(false);
   };
@@ -66,16 +91,13 @@ const ContactPage = () => {
         </p>
       </div>
 
-      <div
-        className="h-auto py-10 flex items-center justify-center"
-        id="Contact"
-      >
+      <div className="h-auto py-10 flex items-center justify-center" id="Contact">
         <div className="container grid grid-cols-1 lg:grid-cols-[45%_55%] gap-12">
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10">
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-                  Fungsi ini sedang dalam pengembangan
+                  Hubungi Saya
                 </h2>
                 <p className="text-gray-400">
                   Ada yang ingin didiskusikan? Kirim saya pesan.
@@ -129,10 +151,10 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 <Send className="w-5 h-5" />
-                Kirim Pesan
+                {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
               </button>
             </form>
 

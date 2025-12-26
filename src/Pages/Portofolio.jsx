@@ -121,16 +121,16 @@ const techStacks = [
 const certificatesData = [
   {
     id: 1,
-    Img: "/certificates/Gamelab.jpeg",
+    img: "/certificates/Gamelab.jpeg",
     title: "Kunjungan Industri",
     issuer: "Gamelab",
     year: "2025",
   },
   {
-    id: 1,
-    Img: "/certificates/DomainMyId.jpeg",
-    title: "Kunjungan Industri",
-    issuer: "Gamelab",
+    id: 2,
+    img: "/certificates/DomainMyId.jpeg",
+    title: "Pelatihan Domain",
+    issuer: "MyId",
     year: "2025",
   }
 ];
@@ -150,7 +150,6 @@ export default function FullWidthTabs() {
       once: false,
     });
   }, []);
-
 
   const fetchData = useCallback(async () => {
     try {
@@ -180,8 +179,7 @@ export default function FullWidthTabs() {
   }, []);
 
 
-
-  useEffect(() => {
+ useEffect(() => {
   const cachedProjects = localStorage.getItem("projects");
   const cachedCertificates = localStorage.getItem("certificates");
 
@@ -189,11 +187,11 @@ export default function FullWidthTabs() {
     setProjects(JSON.parse(cachedProjects));
   }
 
-  if (cachedCertificates) {
+  // 🔥 LOGIC BENAR UNTUK CERTIFICATES
+  if (cachedCertificates && JSON.parse(cachedCertificates).length > 0) {
     setCertificates(JSON.parse(cachedCertificates));
   } else {
-    // ✅ FALLBACK KE DATA STATIS
-    setCertificates(certificatesData);
+    setCertificates(certificatesData); // fallback aman
   }
 
   fetchData();
@@ -367,7 +365,7 @@ export default function FullWidthTabs() {
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate ImgSertif={certificate.img} />
                   </div>
                 ))}
               </div>

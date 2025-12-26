@@ -81,7 +81,7 @@ const WORDS = ["Network & Telecom Student", "Tech Enthusiast"];
 const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind","PHP"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/luckysany42-netizen" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/ekizr/" },
+  { icon: Linkedin, link: "https://www.linkedin.com/in/lucky-sany-4752553a1/" },
   { icon: Instagram, link: "https://www.instagram.com/lkyymei" }
 ];
 
