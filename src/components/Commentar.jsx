@@ -293,7 +293,6 @@ const Komentar = () => {
                     event: '*', 
                     schema: 'public', 
                     table: 'comments',
-                    filter: 'is_pinned=eq.false'
                 }, 
                 () => {
                     fetchComments(); // Refresh comments when changes occur
