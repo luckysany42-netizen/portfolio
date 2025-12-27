@@ -246,7 +246,7 @@ const Komentar = () => {
                 const { data, error } = await supabase
                     .from('comments')
                     .select('*')
-                    .eq('is_pinned', false)
+                    .or("is_pinned.is.null,is_pinned.eq.false")
                     .single();
                 
                 if (error && error.code !== 'PGRST116') {
