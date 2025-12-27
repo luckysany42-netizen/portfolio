@@ -246,8 +246,11 @@ const Komentar = () => {
                 const { data, error } = await supabase
                     .from('comments')
                     .select('*')
-                    .or("is_pinned.is.null,is_pinned.eq.false")
-                    .single();
+                    .eq('is_pinned', true)
+                    .order('created_at', { ascending: false })
+                    .limit(1)
+                    .maybeSingle();
+
                 
                 if (error && error.code !== 'PGRST116') {
                     console.error('Error fetching pinned comment:', error);
@@ -269,10 +272,10 @@ const Komentar = () => {
     useEffect(() => {
         const fetchComments = async () => {
             const { data, error } = await supabase
-                .from("comments")
-                .select("*")
-                .or("is_pinned.is.null,is_pinned.eq.false")
-                .order("created_at", { ascending: false });
+            .from("comments")
+            .select("*")
+            .eq("is_pinned", false)
+            .order("created_at", { ascending: false });
 
             
             if (error) {
