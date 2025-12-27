@@ -269,10 +269,11 @@ const Komentar = () => {
     useEffect(() => {
         const fetchComments = async () => {
             const { data, error } = await supabase
-                .from('comments')
-                .select('*')
-                .eq('is_pinned', false)
-                .order('created_at', { ascending: false });
+                .from("comments")
+                .select("*")
+                .or("is_pinned.is.null,is_pinned.eq.false")
+                .order("created_at", { ascending: false });
+
             
             if (error) {
                 console.error('Error fetching comments:', error);
