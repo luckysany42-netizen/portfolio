@@ -72,6 +72,16 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
 
 
 function TabPanel({ children, value, index, ...other }) {
+  const projects = [
+  {
+    id: 1,
+    Img: "https://via.placeholder.com/600x400",
+    Title: "TEST PROJECT",
+    Description: "Jika ini muncul, berarti CardProject AMAN",
+    Link: "#",
+  },
+];
+
   return (
     <div
       role="tabpanel"
@@ -172,6 +182,9 @@ export default function FullWidthTabs() {
       Link: "#",                  // placeholder aman
     }));
     setProjects(projectData);
+    console.log("RAW FROM SUPABASE:", projectsResponse.data);
+    console.log("MAPPED PROJECTS:", projectData);
+
 
       const certificateData = certificatesResponse.data || [];
 
