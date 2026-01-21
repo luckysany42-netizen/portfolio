@@ -11,30 +11,30 @@ export default function ProjectDetail() {
           {/* LEFT */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold">
-              Project Title
+              OpenHands
             </h1>
 
             <p className="text-gray-300 leading-relaxed max-w-xl">
-              Ini adalah deskripsi singkat project. Kamu bisa menjelaskan tujuan,
-              fungsi, dan value utama dari project ini di sini.
+             OpenHands adalah platform donasi digital berbasis web yang bertujuan untuk menyalurkan bantuan secara transparan, aman, dan mudah kepada mereka yang membutuhkan. Platform ini menghubungkan donatur dengan pengelola program sosial melalui sistem yang sederhana dan terpercaya. 
+             OpenHands menyediakan fitur seperti donasi online, pengelolaan campaign sosial, riwayat donasi, serta komunikasi langsung dengan admin, sehingga proses berbagi dapat dilakukan dengan cepat dan tepat sasaran. Dengan OpenHands, setiap orang dapat berkontribusi menciptakan dampak sosial nyata hanya melalui beberapa langkah.
             </p>
 
             {/* STATS */}
             <div className="flex gap-4">
               <div className="bg-white/5 border border-white/10 rounded-xl px-6 py-4">
                 <p className="text-xl font-bold">5</p>
-                <span className="text-sm text-gray-400">Total Teknologi</span>
+                <span className="text-sm text-gray-400">7</span>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl px-6 py-4">
                 <p className="text-xl font-bold">2</p>
-                <span className="text-sm text-gray-400">Fitur Utama</span>
+                <span className="text-sm text-gray-400">2</span>
               </div>
             </div>
 
             {/* BUTTON */}
             <div className="flex flex-wrap gap-4 pt-2">
               <a
-                href="#"
+                href="https://github.com/luckysany42-netizen/OpenHands.git"
                 className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 transition px-5 py-3 rounded-xl font-medium"
               >
                 <ExternalLink size={18} />
@@ -42,7 +42,7 @@ export default function ProjectDetail() {
               </a>
 
               <a
-                href="#"
+                href="https://github.com/luckysany42-netizen/OpenHands.git"
                 className="flex items-center gap-2 bg-purple-600/20 border border-purple-500/30 hover:bg-purple-600/30 transition px-5 py-3 rounded-xl font-medium"
               >
                 <Github size={18} />
@@ -70,8 +70,8 @@ export default function ProjectDetail() {
           </h2>
 
           <ul className="space-y-3 text-gray-300 list-disc list-inside">
-            <li>Fitur utama pertama</li>
-            <li>Fitur utama kedua</li>
+            <li>Sistem Donasi Online</li>
+            <li>Manajemen Campaign Donasi</li>
           </ul>
         </div>
 
@@ -81,11 +81,13 @@ export default function ProjectDetail() {
 
           <div className="flex flex-wrap gap-3">
             {[
-              "ReactJS",
+              "Laravel",
+              "PHP",
+              "MySQL",
               "Tailwind CSS",
-              "Framer Motion",
-              "Lucide React",
-              "AOS",
+              "HTML",
+              "CSS",
+              "JavaScript",
             ].map((tech) => (
               <span
                 key={tech}
