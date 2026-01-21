@@ -15,8 +15,7 @@ export default function ProjectDetail() {
             </h1>
 
             <p className="text-gray-300 leading-relaxed max-w-xl">
-             OpenHands adalah platform donasi digital berbasis web yang bertujuan untuk menyalurkan bantuan secara transparan, aman, dan mudah kepada mereka yang membutuhkan. Platform ini menghubungkan donatur dengan pengelola program sosial melalui sistem yang sederhana dan terpercaya. 
-             OpenHands menyediakan fitur seperti donasi online, pengelolaan campaign sosial, riwayat donasi, serta komunikasi langsung dengan admin, sehingga proses berbagi dapat dilakukan dengan cepat dan tepat sasaran. Dengan OpenHands, setiap orang dapat berkontribusi menciptakan dampak sosial nyata hanya melalui beberapa langkah.
+             OpenHands adalah platform donasi digital berbasis web yang bertujuan untuk menyalurkan bantuan secara transparan, aman, dan mudah kepada mereka yang membutuhkan. Platform ini menghubungkan donatur dengan pengelola program sosial melalui sistem yang sederhana dan terpercaya.
             </p>
 
             {/* STATS */}
