@@ -6,27 +6,31 @@ export default function ProjectDetail() {
       <div className="max-w-7xl mx-auto space-y-14">
 
         {/* ===== TOP SECTION ===== */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          
-          {/* LEFT */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+          {/* ================= LEFT COLUMN ================= */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold">
               OpenHands
             </h1>
 
-            <p className="text-gray-300 leading-relaxed max-w-xl">
-             OpenHands adalah platform donasi digital berbasis web yang bertujuan untuk menyalurkan bantuan secara transparan, aman, dan mudah kepada mereka yang membutuhkan. Platform ini menghubungkan donatur dengan pengelola program sosial melalui sistem yang sederhana dan terpercaya.
+            {/* DESCRIPTION (DIBATASI BIAR TIDAK JATUH) */}
+            <p className="text-gray-300 leading-relaxed max-w-xl line-clamp-4">
+              OpenHands adalah platform donasi digital berbasis web yang bertujuan
+              untuk menyalurkan bantuan secara transparan, aman, dan mudah kepada
+              mereka yang membutuhkan. Platform ini menghubungkan donatur dengan
+              pengelola program sosial melalui sistem yang sederhana dan terpercaya.
             </p>
 
             {/* STATS */}
             <div className="flex gap-4">
               <div className="bg-white/5 border border-white/10 rounded-xl px-6 py-4">
                 <p className="text-xl font-bold">5</p>
-                <span className="text-sm text-gray-400">7</span>
+                <span className="text-sm text-gray-400">Total Teknologi</span>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl px-6 py-4">
                 <p className="text-xl font-bold">2</p>
-                <span className="text-sm text-gray-400">2</span>
+                <span className="text-sm text-gray-400">Fitur Utama</span>
               </div>
             </div>
 
@@ -50,31 +54,36 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 to-purple-600/20 blur-2xl rounded-3xl" />
-            <img
-              src="/project-preview.png"
-              alt="Project Preview"
-              className="relative rounded-3xl border border-white/10 shadow-2xl"
-            />
+          {/* ================= RIGHT COLUMN ================= */}
+          <div className="space-y-6">
+
+            {/* IMAGE PREVIEW (DIKUNCI TINGGINYA) */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/30 to-purple-600/20 blur-2xl rounded-3xl" />
+              <img
+                src="/project-preview.png"
+                alt="Project Preview"
+                className="relative w-full h-[320px] object-cover rounded-3xl border border-white/10 shadow-2xl"
+              />
+            </div>
+
+            {/* ===== KEY FEATURES (PINDAH KE KANAN) ===== */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <h2 className="flex items-center gap-2 text-lg font-semibold mb-4">
+                <Star className="text-yellow-400" size={20} />
+                Key Features
+              </h2>
+
+              <ul className="space-y-3 text-gray-300 list-disc list-inside">
+                <li>Sistem Donasi Online</li>
+                <li>Manajemen Campaign Donasi</li>
+              </ul>
+            </div>
+
           </div>
         </div>
 
-        {/* ===== KEY FEATURES ===== */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-3xl">
-          <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
-            <Star className="text-yellow-400" size={20} />
-            Key Features
-          </h2>
-
-          <ul className="space-y-3 text-gray-300 list-disc list-inside">
-            <li>Sistem Donasi Online</li>
-            <li>Manajemen Campaign Donasi</li>
-          </ul>
-        </div>
-
-        {/* ===== TECHNOLOGIES ===== */}
+        {/* ================= TECHNOLOGIES ================= */}
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Technologies Used</h2>
 
