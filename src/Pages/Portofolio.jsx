@@ -164,7 +164,15 @@ export default function FullWidthTabs() {
       if (certificatesResponse.error) throw certificatesResponse.error;
 
       // Supabase mengembalikan data dalam properti 'data'
-      const projectData = projectsResponse.data || [];
+     const projectData = (projectsResponse.data || []).map(item => ({
+      id: item.id,
+      Img: item.img,              // cocok
+      Title: item.title,          // cocok
+      Description: item.issuer,   // sementara pakai issuer
+      Link: "#",                  // placeholder aman
+    }));
+    setProjects(projectData);
+
       const certificateData = certificatesResponse.data || [];
 
       setProjects(projectData);
